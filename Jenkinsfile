@@ -10,6 +10,7 @@ node {
       mvnHome = tool 'Maven 3.5.0'
    }
    stage('Build') {
+      $workspace/Hello-World pipeline/javadoctest
       // Run the maven build
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
