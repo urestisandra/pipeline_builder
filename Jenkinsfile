@@ -11,8 +11,9 @@ node {
    }
    stage('Build') {
       // Run the maven build
-      sh cd /var/lib/jenkins/workspace/Hello-World pipeline/javadoctest
+      
       if (isUnix()) {   
+         sh cd '/var/lib/jenkins/workspace/Hello-World pipeline/javadoctest'
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
