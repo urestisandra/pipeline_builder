@@ -28,7 +28,8 @@ node {
       }
    }
    stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
+      //junit '**/target/surefire-reports/TEST-*.xml'
+      junit '**/target/TEST-*.xml'
       archive 'target/*.jar'
    }
 }
