@@ -16,15 +16,13 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'Maven 3.5.0'
    }
+      // Run the maven build
    stage('Build') {
       // Run the maven build
-      //sh cd "/var/lib/jenkins/workspace/Demo pipeline/javadoctest"
       if (isUnix()) {
-         //sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.skip=true clean package"
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
-         //bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.skip=true clean package/)
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
    stage('Results') {
