@@ -29,7 +29,8 @@ node {
    }
    stage('Results') {
       //junit '**/target/surefire-reports/TEST-*.xml'
-      junit '**/target/TEST-*.xml'
+      //junit '**/target/TEST-*.xml'
+      junit allowEmptyResults: true, testResults: '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
 }
